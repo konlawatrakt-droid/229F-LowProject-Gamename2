@@ -3008,6 +3008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 298610928}
   - component: {fileID: 298610929}
+  - component: {fileID: 298610930}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Ground
@@ -3061,7 +3062,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.110198736, y: 0.003861159}
@@ -3076,6 +3077,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.23784208, y: 0.082065046}
   m_EdgeRadius: 0
+--- !u!252 &298610930
+SurfaceEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298610927}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Speed: 1
+  m_SpeedVariation: 0
+  m_ForceScale: 0.1
+  m_UseContactForce: 0
+  m_UseFriction: 1
+  m_UseBounce: 1
 --- !u!1 &305477881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5801,6 +5820,56 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &539688574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539688576}
+  - component: {fileID: 539688575}
+  m_Layer: 0
+  m_Name: BGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &539688575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539688574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f63232a3b62d22468b05dc9ef5eb15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BGMManager
+  bgmClip: {fileID: 8300000, guid: 557782474adff954eb02fb93e3f379bf, type: 3}
+  volume: 0.04
+  playOnStart: 1
+  loop: 1
+  fadeIn: 1
+  fadeInTime: 2
+--- !u!4 &539688576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539688574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.91294, y: -1.19272, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &565997176
 GameObject:
   m_ObjectHideFlags: 0
@@ -6205,11 +6274,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60379c8333090434a9d6d6d85efcc501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargeBarUI
-  playerController: {fileID: 1588755318}
   chargeSlider: {fileID: 280403892}
-  fillImage: {fileID: 0}
+  player: {fileID: 0}
   normalColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  fullChargeColor: {r: 1, g: 0, b: 0, a: 1}
+  fullColor: {r: 1, g: 0.3, b: 0.1, a: 1}
+  pulseWhenFull: 1
+  pulseSpeed: 8
+  pulseAmount: 0.06
+  hideWhenIdle: 1
+  screenOffset: {x: 0, y: 80}
 --- !u!4 &582949769
 Transform:
   m_ObjectHideFlags: 0
@@ -9703,11 +9776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b9d88c8f077106a4a96215bfb975d965, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.467
+      value: -1.51
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b9d88c8f077106a4a96215bfb975d965, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.855
+      value: -0.88
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b9d88c8f077106a4a96215bfb975d965, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9760,6 +9833,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: b9d88c8f077106a4a96215bfb975d965, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1588755321}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: b9d88c8f077106a4a96215bfb975d965, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1588755324}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: b9d88c8f077106a4a96215bfb975d965, type: 3}
 --- !u!1 &955770645
 GameObject:
@@ -10771,7 +10847,7 @@ Transform:
   m_GameObject: {fileID: 1070891032}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.141, y: -1.426, z: 0}
+  m_LocalPosition: {x: 4.217, y: -1.799, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15198,6 +15274,12 @@ MonoBehaviour:
   waterMoveSpeed: 0.35
   waterJumpPowerScale: 0.7
   waterDrag: 2
+  chargeStartSound: {fileID: 0}
+  chargeFullSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 6492d8a0a6f4c5a49ac358352bb6a3c6, type: 3}
+  landSound: {fileID: 0}
+  waterSplashSound: {fileID: 0}
+  sfxVolume: 0.15
   chargeRatio: 0
   isFullCharge: 0
 --- !u!114 &1588755321
@@ -15213,6 +15295,103 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDeath
   restartButtonUI: {fileID: 980959720}
+--- !u!82 &1588755324
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588755306}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1595847470
 GameObject:
   m_ObjectHideFlags: 0
@@ -16432,6 +16611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1699300058}
   - component: {fileID: 1699300059}
+  - component: {fileID: 1699300060}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Ground
@@ -16485,7 +16665,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.110198736, y: 0.003861159}
@@ -16500,6 +16680,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.23784208, y: 0.082065046}
   m_EdgeRadius: 0
+--- !u!252 &1699300060
+SurfaceEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699300057}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Speed: 0.2
+  m_SpeedVariation: 1
+  m_ForceScale: 0.1
+  m_UseContactForce: 0
+  m_UseFriction: 1
+  m_UseBounce: 1
 --- !u!1 &1699339270
 GameObject:
   m_ObjectHideFlags: 0
@@ -20864,3 +21062,4 @@ SceneRoots:
   - {fileID: 42855721}
   - {fileID: 918524707}
   - {fileID: 369155979}
+  - {fileID: 539688576}
